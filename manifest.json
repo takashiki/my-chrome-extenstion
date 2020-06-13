@@ -1,0 +1,34 @@
+{
+    "name": "天工千问",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "微信读书笔记及标注导出",
+    "homepage_url": "https://qxzzf.com/",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "cookies",
+        "webRequest",
+        "webRequestBlocking",
+        "*://i.weread.qq.com/*",
+        "*://weread.qq.com/*",
+        "*://r.qq.com/*",
+        "*://*.file.myqcloud.com/*"
+    ],
+    "content_scripts": [{
+        "run_at": "document_end",
+        "matches": ["*://weread.qq.com/*"],
+        "js": ["js/inject.js"]
+    }]
+}
